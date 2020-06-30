@@ -13,25 +13,28 @@ public class View extends JFrame implements ActionListener{
 	public View() {
 		
 		setLayout(null);
-		botonRed=new JButton("RED");
-		botonBlack=new JButton("BLACK");
-		botonBlue=new JButton("BLUE");
+		botonRed = new JButton("RED");
+		botonBlack = new JButton("BLACK");
+		botonBlue = new JButton("BLUE");
 		
-		botonRed.setBounds(100,150,100,30);
-		botonBlack.setBounds(200, 150, 100, 30);
-		//botonBlue.setBounds(x, y, width, height);
+		botonRed.setBounds(100,400,100,30);
+		botonBlack.setBounds(200, 400, 100, 30);
+		botonBlue.setBounds(300, 400, 100, 30);
 		
 		botonRed.setBackground(Color.RED);
 		botonBlack.setBackground(Color.BLACK);
+		botonBlue.setBackground(Color.BLUE);
 		
 		botonRed.addActionListener(this);
 		botonBlack.addActionListener(this);
+		botonBlue.addActionListener(this);
 		
 		add(botonRed);
 		add(botonBlack);
+		add(botonBlue);
 		
 		texto=new JLabel("Presione el botón para cambiar el color:");
-		texto.setBounds(50,50,220,40);
+		texto.setBounds(50,50,400,400);
 		
 		add(texto);
 	}
@@ -63,16 +66,33 @@ public class View extends JFrame implements ActionListener{
 		}
 	}
 	
+	private void cambiarAzul() {
+		setTitle("Cambiando el color...");
+		
+		try{
+			Thread.sleep(3000);
+			this.getContentPane().setBackground(Color.BLACK);
+			} catch(Exception excep) {
+				System.out.println(excep.getMessage());
+			}
+			finally {
+				setTitle("Color Blue establecido");
+			}
+	}
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource()==botonRed) {
+		if (e.getSource() == botonRed) {
 			setTitle("Cambiando el color");
 			
 			cambiarRojo();
 		}
-		else if (e.getSource()==botonBlack) {
+		else if (e.getSource() == botonBlack) {
 			cambiarNegro();
+		}
+		else if(e.getSource() == botonBlue) {
+			cambiarAzul();
 		}
 		
 	}
