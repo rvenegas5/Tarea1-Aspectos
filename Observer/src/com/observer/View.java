@@ -71,7 +71,7 @@ public class View extends JFrame implements ActionListener{
 		
 		try{
 			Thread.sleep(3000);
-			this.getContentPane().setBackground(Color.BLACK);
+			this.getContentPane().setBackground(Color.BLUE);
 			} catch(Exception excep) {
 				System.out.println(excep.getMessage());
 			}
@@ -91,6 +91,7 @@ public class View extends JFrame implements ActionListener{
 		else if (e.getSource() == botonBlack) {
 			cambiarNegro();
 		}
+		
 		else if(e.getSource() == botonBlue) {
 			cambiarAzul();
 		}

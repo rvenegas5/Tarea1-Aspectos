@@ -1,5 +1,6 @@
 package com.common;
-import com.observer.*;
+
+import com.observer.View;
 
 public class Main {
 	
